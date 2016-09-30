@@ -11,41 +11,46 @@ function validaCampo(evt) {
  var senha2 = document.getElementById('senha2').value;
  var cpf = document.getElementById('cpf').value;
  var email = document.getElementById('email').value;
-
- alert("cheguei aqui");
+ 
+ var mensagens = [];
  
 if (nome == "") {
-alert("Por favor, preencha o campo com seu nome.");
-document.getElementById.nome.focus ();
-return false;
-}
-
-if (senha1 == "" || senha.length <= 8) {
-alert("Por favor,preencha o campo com uma senha de no mínimo 6 caracteres.");
-document.getElementById.senha1.focus ();
-return false; 
-}
-
-if (senha2 == "") {
-alert("Por favor,preencha o campo com os mesmos caracteres da senha digitada acima.")
-document.getElementById.senha2.focus ();
-return false; 
+mensagens.push("Por favor, preencha o campo com seu nome.");
 }
 
 if (cpf == "") {
-alert("Por favor,preencha o campo com o número de seu CPF.");
-document.getElementById.cpf.focus ();
-return false; 
+mensagens.push("Por favor,preencha o campo com o número de seu CPF."); 
 }
 
-if (email == "" || indexOf ('@') == -1) {
-alert("Por favor,preencha o campo com seu E-mail.");
-document.getElementById.email.focus ();
-return false; 
+if (email == "") {
+mensagens.push("Por favor,preencha o campo com seu E-mail."); 
+}
+
+if (senha1 == "") {
+mensagens.push("Por favor,preencha o campo com uma senha de no mínimo 8 caracteres, sendo 3 destes com letra maiúscula, também contendo 2 números e 1 caractere especial."); 
+}
+
+if (senha2 == "") {
+mensagens.push("Por favor,preencha o campo com os mesmos caracteres da senha digitada acima."); 
+}
+
+if (mensagens.length){
+ var notifica = "Seu formulário possui erros:\n\n";
+ 
+ for(var i=0; i <mensagens.length; i++){
+  var m = mensagens[i];
+  notifica += '- ' + m;
+  if(i == mensagens.length - 1){
+  notifica += '.';
+  }else{
+  notifica += ';\n';
+  }
+}
+
+alert(notifica);
 }
 
 }
-
 </script>
 <title>Cadastro de Cliente
 </title>
